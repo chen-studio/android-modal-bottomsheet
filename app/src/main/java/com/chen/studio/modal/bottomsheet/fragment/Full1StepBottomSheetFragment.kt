@@ -12,7 +12,7 @@ import com.chen.studio.modal.bottomsheet.model.BottomSheetOption
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class Half1StepBottomSheetFragment : BottomSheetDialogFragment() {
+class Full1StepBottomSheetFragment : BottomSheetDialogFragment() {
     private var _binding: BottomSheetFragmentBinding? = null
     private val binding: BottomSheetFragmentBinding get() = requireNotNull(_binding)
 
@@ -34,11 +34,11 @@ class Half1StepBottomSheetFragment : BottomSheetDialogFragment() {
         .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.titleText.text = BottomSheetOption.HALF_1STEP.name
+        binding.titleText.text = BottomSheetOption.FULL_1STEP.name
         setHeightRatio(
             root = binding.root,
-            collapsedRatio = 0.5F,
-            expandedRatio = 0.5F
+            collapsedRatio = 1F,
+            expandedRatio = 1F
         )
     }
 
@@ -48,6 +48,6 @@ class Half1StepBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     companion object {
-        fun newInstance(): Half1StepBottomSheetFragment = Half1StepBottomSheetFragment()
+        fun newInstance(): Full1StepBottomSheetFragment = Full1StepBottomSheetFragment()
     }
 }
