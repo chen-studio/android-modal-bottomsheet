@@ -3,17 +3,20 @@ package com.chen.studio.modal.bottomsheet.main.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.chen.studio.modal.bottomsheet.databinding.MainActivityBinding
 import com.chen.studio.modal.bottomsheet.main.adapter.MainAdapter
 import com.chen.studio.modal.bottomsheet.model.BottomSheetOption
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     private val binding: MainActivityBinding by lazy {
         MainActivityBinding.inflate(layoutInflater)
     }
-    private val adapter: MainAdapter by lazy { MainAdapter() }
+    private val adapter: MainAdapter by lazy {
+        MainAdapter { option -> option.onClick(supportFragmentManager) }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

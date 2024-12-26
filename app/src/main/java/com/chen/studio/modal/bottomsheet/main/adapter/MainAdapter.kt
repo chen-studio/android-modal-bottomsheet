@@ -8,14 +8,17 @@ import com.chen.studio.modal.bottomsheet.databinding.MainItemBinding
 import com.chen.studio.modal.bottomsheet.main.viewholder.MainViewHolder
 import com.chen.studio.modal.bottomsheet.model.BottomSheetOption
 
-class MainAdapter : ListAdapter<BottomSheetOption, MainViewHolder>(diffCallback) {
+class MainAdapter(
+    private val onClick: (BottomSheetOption) -> Unit
+) : ListAdapter<BottomSheetOption, MainViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder =
         MainViewHolder(
             binding = MainItemBinding.inflate(
                 /* inflater = */ LayoutInflater.from(parent.context),
                 /* parent = */ parent,
                 /* attachToParent = */ false
-            )
+            ),
+            onClick
         )
 
 
